@@ -1,0 +1,23 @@
+{
+  "name": "placetrack",
+  "version": "1.0.0",
+  "description": "PlaceTrack — College Placement Management & Tracking System (MERN Stack)",
+  "main": "index.js",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "start": "cd backend && npm start",
+    "build": "cd frontend && npm run build",
+    "seed": "cd backend && npm run seed",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install"
+  },
+  "keywords": [
+    "mern",
+    "placement",
+    "management",
+    "college"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
