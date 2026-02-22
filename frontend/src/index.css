@@ -1,7 +1,7 @@
-@import "tailwindcss";
-
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
 
 * {
   font-family: 'Inter', sans-serif;
@@ -20,13 +20,16 @@ body {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #1e293b;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #475569;
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #64748b;
 }
