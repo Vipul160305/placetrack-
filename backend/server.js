@@ -37,11 +37,17 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // ─── CORS ───────────────────────────────────────────────────────
-const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173').split(',');
+const rawOrigins = process.env.CLIENT_URL || 'http://localhost:5173';
+const allowedOrigins = rawOrigins.split(',').map(url => url.trim().replace(/\/$/, ''));
+
 app.use(cors({
     origin: function (origin, callback) {
-        // Allow requests with no origin (mobile apps, curl, etc.)
-        if (!origin || allowedOrigins.includes(origin)) {
+        if (!origin) return callback(null, true);
+
+        const originClean = origin.replace(/\/$/, '');
+
+        // Allow if in allowedOrigins OR if we're not in strict production mode currently
+        if (allowedOrigins.includes(originClean) || process.env.NODE_ENV !== 'production') {
             callback(null, true);
         } else {
             callback(new Error('Not allowed by CORS'));
